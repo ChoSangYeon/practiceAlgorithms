@@ -1,7 +1,5 @@
+import re
 def solution(my_string):
-    table = str.maketrans('', '', 'abcdefghijklnmopqrstuvwxyz')
-    result = my_string.translate(table)
-    lst = []
-    for i in result:
-        lst.append(int(i))
-    return sorted(lst)
+    p = re.compile('[0-9]')
+    answer = list(sorted(map(int, p.findall(my_string))))
+    return answer
